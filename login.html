@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+	</head>
+	<body>
+		用户名：<input type="text"  id="user" />
+		<br/>
+		密  码 ：<input type="text"  id="passwords" />
+		<br/>
+		5分钟免登录:<input type="checkbox"  id="chck"  />
+		<br/>
+		<input type="button" value="登录" id="login" />
+		
+	</body>
+	<script src="exa/links/cookies.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var loginbtn=document.getElementById("login");
+			var user=document.getElementById("user");
+			var passwords=document.getElementById("passwords");
+			var chec=document.getElementById("chck");
+			//获取本地cookoe中的用户名密码
+			var cookuser=getCook("username");
+			var cookpass=getCook("pass");
+			if(cookuser!=""&&cookpass!=""){
+				 window.location.href="http://www.baidu.com";
+			}
+			
+			
+			loginbtn.onclick=function(){
+				if(chec.checked==true){
+					setCookie("username",user.value,3);
+					setCookie("pass",passwords.value,3);
+				}
+					
+				window.location.href="http://www.baidu.com";
+				
+			}
+			
+			
+		}
+		
+	</script>
+</html>

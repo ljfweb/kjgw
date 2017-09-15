@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--火狐-->
+		<object class="ddd" type="application/x-mplayer2" width="0" height="0" data="music/sound00.mp3">
+			<param name="src" value="music/sound00.mp3">
+		</object>
+		<!--ie-->
+		<bgsound class="myaudio" src="music/sound00.mp3" autostart="true" loop="true" controls="controls" >
+			
+			<!--其他-->
+			<embed class="myaudio" src="music/sound00.mp3" autostart="" loop="loop"   ></embed>
+			
+		
+			--controls--加载控制栏
+			loop---循环播放
+			src 文件路径
+			autoplay 自动播放
+			<audio controls="controls" loop="loop" autoplay="autoplay">
+			
+			  <source src="music/sound00.mp3" type="audio/mpeg">
+				
+			</audio>
+			
+	</body>
+</html>

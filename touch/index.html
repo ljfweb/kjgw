@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>移动端touch事件</title>
+		<style>
+			.ft{width: 100%; height: 400px; position: relative;}
+			.tch{width: 100%; height: 400px; position: absolute; top: 0;
+			 background: radial-gradient(#fff,#0ff);}
+			 
+		</style>
+		<script type="text/javascript">
+		window.onload=function(){
+			document.getElementsByClassName("tch")[0].addEventListener("touchstart",touchStart,false);
+			document.getElementsByClassName("tch")[0].addEventListener("touchmove",touchMove,false);
+			document.getElementsByClassName("tch")[0].addEventListener("touchend",touchEnd,false);
+		}
+		
+				var strax;
+				var movex;
+				var endx;
+				var stary;
+				var movey;
+				var endy;
+				
+				
+			function touchStart(event){
+				strax=event.touches[0].pageX;
+				stray=event.touches[0].pageY;
+				console.log("touch  start ")
+				
+				
+			}
+			function touchMove(event){
+				movex=event.touches[0].pageX;
+				movey=event.touches[0].pageY;
+				console.log(movex);
+			
+			}
+			function touchEnd(event){
+				endx=event.changedTouches[0].pageX;
+				endy=event.changedTouches[0].pageY;
+			
+				console.log("touch  end");
+			
+				var _art=endx-strax;
+				var _arty=endy-stray;
+				if(_art>0){
+					console.log("向右移动");
+				}else{
+					console.log("向左移动");
+				}
+				if(_arty>0){
+					console.log("向下移动");
+				}else{
+					console.log("向上移动");
+				}
+			}
+		
+		</script>
+	</head>
+	<body>
+		
+		<div class="ft"> 
+			<div class="tch"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+			<script src="js/voicepre.js"></script>
+		<style>
+			.wrap{width: 100%; height: 500px; background: blueviolet; }
+		
+		</style>
+		<script>
+			window.onload=function(){
+				video=document.getElementsByTagName("video")[0];
+				video.addEventListener("touchstart",touchStart,false);
+				video.addEventListener("touchmove",touchMove,false);
+				video.addEventListener("touchend",touchEnd,false);				
+			}
+			var video;
+			var starx;
+			var movex;
+			var endx;
+			var stary;
+			var movey;
+			var endy;
+			var time;
+			function touchStart(event){
+				starx=event.touches[0].pageX;
+				stary=event.touches[0].pageY;
+			}
+			function touchMove(event){
+				movex=event.touches[0].pageX;
+				movey=event.touches[0].pageY;
+			}
+			function touchEnd(event){
+				
+				endx=event.changedTouches[0].pageX;
+				endy=event.changedTouches[0].pageY;
+				var art=endx-starx;
+				var arty=endy-stary;
+			
+				var dw=document.body.scrollWidth;
+				var dy=document.body.scrollHeight;
+				time=video.duration;
+				bl=Math.abs(time*(art/dw));
+				vbl=Math.abs(1*(arty/dy));
+				
+				if(art>0){
+					next(bl);
+				}
+				else{
+					pre(bl);
+				}
+				if(arty>0){
+					minus(vbl);
+				}else{
+					vplus(vbl);
+				}							
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+		<video id="videos" src="img/videos.mp4" width="100%" height="500px" controls="controls" >
+			
+		</video>
+		</div>
+	</body>
+</html>
